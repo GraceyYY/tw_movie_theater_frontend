@@ -34,6 +34,11 @@ body {}
   margin-top: 5px;
 }
 .comments {
+  width: 90%;
+  margin: auto;
 }
-.recommend {
+.comment_item {
+  max-height: 80px;
+  overflow: hidden;
 }
+.recommend {}
