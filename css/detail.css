@@ -41,4 +41,12 @@ body {}
   max-height: 80px;
   overflow: hidden;
 }
-.recommend {}
+.recommend {
+  width: 90%;
+  margin: auto;
+}
+.recommend_item {
+  width: 135px;
+  height: 200.5px;
+  display: inline-block;
+}
