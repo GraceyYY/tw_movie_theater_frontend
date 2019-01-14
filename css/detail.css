@@ -48,9 +48,42 @@ body {
   background: #FFFFFF;
   margin: auto;
 }
-.comment_item {
-  max-height: 80px;
+.comment_item {}
+.comment_item:not(:last-child):after {
+  content: '';
+  display: block;
+  width: 96%;
+  height: 1px;
+  margin: auto;
+  background: #9B9B9B;
+  transform: scaleY(0.5);
+}
+.comment_head {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #0094FF;
+}
+.comment_time {
+  font-size: 14px;
+  color: #898989;
+}
+.comment_text {
+  width: 80%;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.short {
   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.extend_btn {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #2C73D2;
 }
 .recommend {
   background: #FFFFFF;
