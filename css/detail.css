@@ -88,11 +88,17 @@ body {
 .recommend {
   background: #FFFFFF;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
 }
 .recommend_item {
   width: 135px;
   height: 200.5px;
-  display: inline-block;
+  background: #42D727;
+  margin: 15px;
 }
 .main_sub {
   margin-top: 15px;
