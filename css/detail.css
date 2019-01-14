@@ -6,7 +6,7 @@ body {
 }
 .main {
   margin-top: 80px;
-  padding-top: 5px;
+  padding: 5px;
   background-color: #EDEDED;
 }
 .movie {
