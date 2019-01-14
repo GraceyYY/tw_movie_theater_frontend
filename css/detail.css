@@ -11,10 +11,8 @@ body {
 }
 .movie {
   background: #FFFFFF;
-  width: 80%;
   height: 230px;
   margin: auto;
-  box-shadow: 0px 0px 8px 1px #e4e5e6;
 }
 .cover {
   margin-top: 15px;
@@ -48,7 +46,6 @@ body {
 }
 .comments {
   background: #FFFFFF;
-  width: 90%;
   margin: auto;
 }
 .comment_item {
@@ -57,7 +54,6 @@ body {
 }
 .recommend {
   background: #FFFFFF;
-  width: 90%;
   margin: auto;
 }
 .recommend_item {
@@ -69,4 +65,6 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
   overflow: hidden;
+  width: 80%;
+  box-shadow: 0px 0px 8px 1px #e4e5e6;
 }
