@@ -5,9 +5,10 @@ body {}
 }
 .main {
   margin-top: 80px;
+  background-color: #EDEDED;
 }
 .movie {
-  background: ##DCDCDC;
+  background: #FFFFFF;
   width: 80%;
   height: 400px;
   margin: auto;
@@ -34,6 +35,7 @@ body {}
   margin-top: 5px;
 }
 .comments {
+  background: #FFFFFF;
   width: 90%;
   margin: auto;
 }
@@ -42,6 +44,7 @@ body {}
   overflow: hidden;
 }
 .recommend {
+  background: #FFFFFF;
   width: 90%;
   margin: auto;
 }
