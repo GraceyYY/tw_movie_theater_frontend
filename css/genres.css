@@ -44,7 +44,7 @@ body {
   font-size: 16px;
   color: #606060;
 }
-.tags a {
+a {
   text-decoration: inherit;
   color: inherit;
   font: inherit;
@@ -95,4 +95,12 @@ li {
   width: 135px;
   height: 200.5px;
   background: #25D93D;
+}
+.main_footer {
+  text-align: center;
+  margin: 8px auto;
+}
+.pages {
+  display: inline-block;
+  padding: 0px;
 }
