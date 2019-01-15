@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+body {}
+
+header {
+    position:relative;
+}
+
+nav {
+  background-color: #724938;
+  opacity: 0.6;
+  position: sticky;
+  top: 0px;
+  color: #ffffff;
+  display: flex;
+}
+
+.nav_bar {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav button {
+  border-style: none;
+  background-color: transparent;
+  outline-style: none;
+  color: #ffffff;
+}
+
+.big_poster {
+  width: 100%;
+  position:absolute;
+  top: 0px;
+}
+
+.logo {
+  font-style: italic;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.search_bar {
+    padding: 10px;
+}
+.login {
+    padding: 10px;
+}
