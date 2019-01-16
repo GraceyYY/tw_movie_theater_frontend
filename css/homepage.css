@@ -27,6 +27,15 @@ nav span {
   padding: 5px;
 }
 
+nav a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: #ffffff;
+}
+
 .nav_bar {
   width: 1000px;
   margin: 10px auto;
@@ -109,6 +118,8 @@ main {
   color: #ffffff;
 }
 
+/*the layout of the single movie card*/
+
 .movie_list img {
   width: 100%;
 }
@@ -123,8 +134,6 @@ main {
   font-size: 12px;
   color: #9b9999;
 }
-
-/*the layout of the single movie card*/
 
 .movie {
   width: 150px;
@@ -158,6 +167,19 @@ main {
   border-top-right-radius: 5px;
 }
 
+.movie a:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.movie a:visited {
+  color: #000000;
+}
+
+.movie a:hover {
+    color: #CC543A;
+}
+
 .name {
   font-size: 18px;
 }
@@ -170,7 +192,7 @@ main {
   color: #CC543A;
 }
 
-.movie:hover .detail {
+.brief:hover .detail {
   cursor: default;
   visibility: visible;
 }
