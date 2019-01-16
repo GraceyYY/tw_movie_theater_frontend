@@ -4,13 +4,14 @@
 
 body {
   margin: 0px;
+  min-width: 800px;
 }
+
+/*the layout of nav bar*/
 
 header {
   position: relative;
 }
-
-/*the layout of nav bar*/
 
 nav {
   width: 100%;
@@ -21,6 +22,7 @@ nav {
   color: #ffffff;
   display: flex;
   z-index: 1;
+  min-width: 810px;
 }
 
 nav span {
@@ -83,20 +85,30 @@ nav a:visited {
 }
 
 main {
-  width: 1000px;
+  min-width: 810px;
+  max-width: 1000px;
   margin: 0px auto;
   position: relative;
+}
+
+.wide_width {
+  width: 100%;
+}
+
+.medium_width {
+  width: 80%;
 }
 
 /*the layout of classification bar*/
 
 .row {
-  width: 100%;
+  margin: 0px auto;
   display: flex;
   justify-content: space-between;
 }
 
 .classification {
+  width: 100%;
   margin: 0px auto;
   padding: 5px;
   position: sticky;
@@ -127,7 +139,8 @@ main {
 .movie_list {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 20px;
+  margin: 20px auto;
+  padding: 10px 25px;
 }
 
 .small_font {
@@ -177,7 +190,7 @@ main {
 }
 
 .movie a:hover {
-    color: #CC543A;
+  color: #CC543A;
 }
 
 .name {
@@ -217,6 +230,7 @@ main {
 
 .icons i:hover {
   cursor: pointer;
+  color: #CC543A;
 }
 
 /*back to top button*/
