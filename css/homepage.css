@@ -2,49 +2,173 @@
   box-sizing: border-box;
 }
 
-body {}
+body {
+    margin: 0px;
+}
 
 header {
-    position:relative;
+  position: relative;
 }
 
 nav {
+width:100%;
   background-color: #724938;
-  opacity: 0.6;
-  position: sticky;
+  opacity: 0.8;
+  position: fixed;
   top: 0px;
   color: #ffffff;
   display: flex;
+  z-index: 1;
 }
 
 .nav_bar {
+    width: 1000px;
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
+  align-items:center;
 }
 
-nav button {
-  border-style: none;
-  background-color: transparent;
-  outline-style: none;
-  color: #ffffff;
+nav span {
+    padding: 5px;
+}
+
+main {
+  width: 800px;
+  margin: 0px auto;
+  position: relative;
 }
 
 .big_poster {
   width: 100%;
-  position:absolute;
-  top: 0px;
 }
 
 .logo {
   font-style: italic;
-  font-size: 18px;
+  font-size: 24px;
   margin: 10px;
 }
 
 .search_bar {
+  padding: 10px;
+}
+
+.login {
+  padding: 10px;
+}
+.buttons {
     padding: 10px;
 }
-.login {
-    padding: 10px;
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.classification {
+  margin: 10px auto;
+  position: sticky;
+  top:70px;
+  background-color: #ffffff;
+  opacity: 0.9;
+  z-index:1;
+}
+
+.subject {
+  padding: 8px 20px;
+  border-radius: 3px;
+  color: #686868;
+}
+
+.subject:hover {
+  cursor: pointer;
+  background-color: #CDCABE;
+  color: #ffffff;
+}
+
+.movie_list img {
+  width: 100%;
+}
+.movie_list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 20px;
+}
+
+.movie {
+  width: 150px;
+  position: relative;
+  margin: 20px;
+}
+.detail {
+  width: 200px;
+  height: 300px;
+  visibility: hidden;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  box-shadow: 0px 5px 50px;
+  border-radius: 5px;
+}
+
+.detail_card {
+  position: relative;
+  top: -150px;
+  padding: 10px;
+  height: 150px;
+  background-color: #ffffff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.detail img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.name {
+  font-size: 18px;
+}
+
+.name:hover {
+  cursor: pointer;
+}
+
+.score {
+  color: #d36969;
+}
+
+.brief {}
+
+.movie:hover .detail {
+    cursor:default;
+    visibility: visible;
+}
+
+.small_font {
+  font-size: 12px;
+  color: #9b9999;
+}
+
+.title {
+  font-size: 12px;
+}
+
+.icons {
+  color: #9b9999;
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.icons i {
+  flex-grow: 1;
+  margin-left: 30px;
+}
+
+.icons i:hover {
+  cursor: pointer;
 }
