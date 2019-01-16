@@ -16,4 +16,25 @@ class MovieData {
       })
     })
   }
+  searchById(id) {
+    //param: shoud be Number not String
+    return this.idToDetail.get(id);
+  }
+  searchByName(name) {
+    return this.idToDetail.get(this.nameToId.get(name));
+  }
+  searchByGenre([...genres]) {
+    let movies = [];
+    genres.forEach(genre => {
+      this.genresToId[genre].forEach(id => {
+        let movie = this.idToDetail.get(id);
+        if (!movies.includes(movie)) {
+          movies.push(movie);
+        }
+      })
+    })
+    return movies;
+  }
 }
+
+module.exports = MovieData;
