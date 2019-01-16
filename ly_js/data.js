@@ -36,5 +36,3 @@ class MovieData {
     return movies;
   }
 }
-
-module.exports = MovieData;
