@@ -257,3 +257,19 @@ main {
   cursor: pointer;
   opacity: 0.8;
 }
+
+.load_more {
+  text-align: center;
+  margin: 20px auto;
+}
+.load_more span {
+  background-color: #CC543A;
+  color: #ffffff;
+  padding: 10px 120px;
+  border-radius: 5px;
+}
+
+.load_more:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
