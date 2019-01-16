@@ -64,6 +64,10 @@ body {
   font-size: 20px;
   color: #0094FF;
 }
+.comment_rating {
+  font-size: 16px;
+  color: #6833CB;
+}
 .comment_time {
   font-size: 14px;
   color: #898989;
