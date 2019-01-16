@@ -4,12 +4,21 @@ class Comments {
     this.movieId = movieId;
   }
   setRequest() {
-    this.request.url = `https://api.douban.com/v2/movie/subject/${this.movieId}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&count=20&client=&udid=`;;
+    this.request.url = `https://api.douban.com/v2/movie/subject/${this.movieId}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&start=20&count=20&client=&udid=`;
     this.request.dataType = 'jsonp';
     this.request.success = this.callback.bind(this);
   }
   callback(data) {
-    this.commentsData = JSON.parse(JSON.stringify(data));
+    this.comments = JSON.parse(JSON.stringify(data.comments));
+    this.subject = JSON.parse(JSON.stringify(data.subject));
+    setTitle(this.subject);
+    setCover(this.subject);
+    setDetailLink(this.subject.directors, 'directors');
+    setDetailLink(this.subject.casts, 'casts');
+    setDetail(this.subject.genres, 'genres');
+    setDetail(this.subject.pubdates, 'pubdates');
+    setDetail(this.subject.durations, 'durations');
+    setRating(this.subject.rating.average);
   }
   getComments() {
     $.ajax(this.request);
