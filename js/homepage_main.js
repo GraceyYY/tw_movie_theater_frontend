@@ -22,8 +22,11 @@ classification.addEventListener('click', event => {
   showMovies(20, movies, list);
 });
 
-function search() {
-  let value = document.getElementById('search').value;
+function searchMovie(){
+    search(document.getElementById('search').value);
+}
+
+function search(value) {
   count = 0;
   movies = [];
   clearInput();
