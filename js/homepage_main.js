@@ -27,11 +27,10 @@ function search() {
     for (let name of names) {
       if (name.includes(value)) {
         movies.push(data.searchByName(name));
-        console.log(name);
       }
     }
   }
-  if (movies) {
+  if (movies.length > 0) {
     showMovies(20, movies, list);
   } else {
     showErrorMessege(true);
