@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../css/homepage.css"/>
     <link rel="stylesheet" href="../css/all.css"/>
-    <!--
-      <script src="../css/header.js"></script>
-    -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/papaparse.min.js"></script>
+    <script src="../data/movie_data.js"></script>
+    <script src="../js/data.js"></script>
   </head>
   <body>
     <header>
@@ -19,16 +20,16 @@
             <span class="logo">思沃影院</span>
             <span id="homepage">
               <i class="fas fa-home"></i>
-              首页
+              <a href="./homepage.html" target="_blank">首页</a>
             </span>
             <span id="classify">
               <i class="fas fa-th"></i>
-              分类
+              <a href="./genres.html" target="_blank">分类</a>
             </span>
           </div>
           <label class="search_bar">
             <input id="search" placeholder="请输入电影名/ID/分类"/>
-            <span id="search_btn">
+            <span id="search_btn" onclick="search()">
               <i class="fas fa-search"></i>
               搜电影
             </span>
@@ -47,9 +48,9 @@
       </div>
     </header>
     <main>
-      <div class="classification">
-        <div class="row">
-          <span class="subject">剧情</span>
+      <div id="classification">
+        <div class="row medium_width">
+          <span class="subject chosen">剧情</span>
           <span class="subject">喜剧</span>
           <span class="subject">爱情</span>
           <span class="subject">科幻</span>
@@ -60,7 +61,7 @@
           <span class="subject">冒险</span>
           <span class="subject">动作</span>
         </div>
-        <div class="row">
+        <div class="row medium_width">
           <span class="subject">音乐</span>
           <span class="subject">儿童</span>
           <span class="subject">历史</span>
@@ -73,427 +74,19 @@
           <span class="subject">古装</span>
         </div>
       </div>
-      <div class="movie_list">
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="movie_id" class="movie">
-          <div class="brief">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="row">
-              <span class="name">大鱼</span>
-              <span class="score">8.7</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">蒂姆·波顿</span>
-          </div>
-          <div class="detail">
-            <img src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg"/>
-            <div class="detail_card">
-              <div class="row">
-                <span class="name">大鱼</span>
-                <span class="year small_font">2003</span>
-              </div>
-              <div class="subjects">
-                <span class="title">分类：</span>
-                <span class="small_font">剧情/家庭/奇幻</span>
-              </div>
-              <div class="cast">
-                <span class="title">主演：</span>
-                <span class="small_font">伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</span>
-              </div>
-              <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-play-circle"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="movie_list"></div>
+      <div class="load_more">
+        <span id="load_more" onclick="loadMore()">加载更多电影</span>
+      </div>
+      <div id="error_messege" class="error">
+        <p>对不起，未能查询到您搜索的电影或分类</p>
+        <p>请您确认输入的电影名称/ID/分类是否正确</p>
       </div>
     </main>
     <a class="top" href="#">
       <i class="far fa-arrow-alt-circle-up"></i>
     </a>
   </body>
+  <script src="../js/homepage_view.js"></script>
+  <script src="../js/homepage_main.js"></script>
 </html>

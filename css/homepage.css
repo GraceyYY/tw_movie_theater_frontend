@@ -4,13 +4,14 @@
 
 body {
   margin: 0px;
+  min-width: 800px;
 }
+
+/*the layout of nav bar*/
 
 header {
   position: relative;
 }
-
-/*the layout of nav bar*/
 
 nav {
   width: 100%;
@@ -21,10 +22,20 @@ nav {
   color: #ffffff;
   display: flex;
   z-index: 1;
+  min-width: 810px;
 }
 
 nav span {
   padding: 5px;
+}
+
+nav a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: #ffffff;
 }
 
 .nav_bar {
@@ -74,20 +85,30 @@ nav span {
 }
 
 main {
-  width: 1000px;
+  min-width: 850px;
+  max-width: 1100px;
   margin: 0px auto;
   position: relative;
+}
+
+.wide_width {
+  width: 100%;
+}
+
+.medium_width {
+  width: 80%;
 }
 
 /*the layout of classification bar*/
 
 .row {
-  width: 100%;
+  margin: 0px auto;
   display: flex;
   justify-content: space-between;
 }
 
-.classification {
+#classification {
+  width: 100%;
   margin: 0px auto;
   padding: 5px;
   position: sticky;
@@ -101,6 +122,7 @@ main {
   padding: 5px 15px;
   border-radius: 3px;
   color: #686868;
+  transition: 0.1s;
 }
 
 .subject:hover {
@@ -109,14 +131,27 @@ main {
   color: #ffffff;
 }
 
-.movie_list img {
+.chosen {
+  background-color: #CDCABE;
+  color: #ffffff;
+}
+
+/*the layout of the single movie card*/
+
+.brief, .brief_introduction {
+  width: 180px;
+}
+
+.brief img {
   width: 100%;
+  height: 250px;
 }
 
 .movie_list {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 20px;
+  margin: 20px auto;
+  padding: 10px 25px;
 }
 
 .small_font {
@@ -124,16 +159,14 @@ main {
   color: #9b9999;
 }
 
-/*the layout of the single movie card*/
-
 .movie {
   width: 150px;
   position: relative;
-  margin: 20px;
+  margin: 20px 25px;
 }
 
 .detail {
-  width: 200px;
+  width: 220px;
   height: 300px;
   visibility: hidden;
   position: absolute;
@@ -144,8 +177,9 @@ main {
 }
 
 .detail_card {
-  position: relative;
-  top: -150px;
+  position: absolute;
+  top: 150px;
+  width: 100%;
   padding: 10px;
   height: 150px;
   background-color: #ffffff;
@@ -158,8 +192,21 @@ main {
   border-top-right-radius: 5px;
 }
 
+.movie a:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.movie a:visited {
+  color: #000000;
+}
+
+.movie a:hover {
+  color: #CC543A;
+}
+
 .name {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .name:hover {
@@ -170,9 +217,13 @@ main {
   color: #CC543A;
 }
 
-.movie:hover .detail {
+.brief:hover .detail {
   cursor: default;
   visibility: visible;
+}
+
+.subjects {
+  margin-top: 12px;
 }
 
 .title {
@@ -195,6 +246,7 @@ main {
 
 .icons i:hover {
   cursor: pointer;
+  color: #CC543A;
 }
 
 /*back to top button*/
@@ -210,4 +262,41 @@ main {
 .top:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+/*load more button*/
+
+.load_more {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.load_more span {
+  background-color: #CC543A;
+  color: #ffffff;
+  padding: 10px 120px;
+  border-radius: 5px;
+}
+
+.load_more:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/*error messege*/
+
+.error {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+  background-color: #ffffff;
+  color: #CC543A;
+  font-size: 24px;
+  visibility:hidden;
+}
+
+.show_error {
+  visibility: visible;
 }
