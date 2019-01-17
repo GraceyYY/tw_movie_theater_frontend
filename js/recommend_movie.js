@@ -10,8 +10,8 @@ function showMovies(num, movies) {
     movies.forEach(movie => {
       generateMovieList(list, movie.id);
     });
-  }else{
-    for(let i = 0; i < num; i++){
+  } else {
+    for (let i = 0; i < num; i++) {
       generateMovieList(list, movies[i].id);
     }
   }
@@ -59,4 +59,10 @@ function generateMovieIntro(id) {
           </div>
         </div>
     `;
+}
+
+function search() {
+  const value = document.getElementById('search').value;
+  localStorage.setItem('search', value);
+  window.open('homepage.html');
 }
