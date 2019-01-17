@@ -2,6 +2,10 @@ const classification = document.getElementById('classification');
 const data = new MovieData(movie);
 const list = document.getElementsByClassName('movie_list')[0];
 let count = 0;
+let movies = data.searchByGenre(['剧情']);
+
+
+showMovies(20,movies,list);
 
 classification.addEventListener('click', event => {
     count = 0;
