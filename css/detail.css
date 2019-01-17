@@ -187,10 +187,23 @@ a {
   -webkit-box-orient: vertical;
 }
 
+.indent {
+  text-indent: 28px;
+}
+
 .extend_btn {
+  display: inline;
   margin-left: 20px;
   text-decoration: none;
   color: #2C73D2;
+}
+
+.extend_btn:hover {
+  cursor: pointer;
+}
+
+.review_hide {
+  display: none;
 }
 
 .recommend {

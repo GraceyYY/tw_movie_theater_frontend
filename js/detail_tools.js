@@ -93,3 +93,58 @@ function pageInit(comment) {
   setRating(comment.subject.rating.average);
   loadMoreComments(comment);
 }
+
+function load3Reviews(reviews) {
+  let html = reviews.reduce((acc, cur) => {
+    let p = cur.content.split('\n');
+    let reviewContent = p.reduce((acc, cur) => {
+      return acc += `<div>${cur}</div>`
+    }, '');
+    return acc += `<div class="comment_item">
+            <div class="avatar">
+              <a href="${cur.author.alt}">
+                <img src="${cur.author.avatar}"/>
+              </a>
+            </div>
+            <div class="comment_main">
+              <div class="comment_head">
+                ${cur.author.name}
+                <span class="comment_rating">
+                  评分：${cur.rating.value}
+                </span>
+                <span class="comment_time">
+                  发表于${cur.created_at}
+                </span>
+              </div>
+              <div class="review_title">${cur.title}</div>
+              <div class="comment_text">
+                <div class="review_summary" id="reviewSummary">${cur.summary}</div>
+                <div class="review_content review_hide" id="reviewContent">${reviewContent}</div>
+                <div class="extend_btn" onclick="extendHideReview(event)">展开影评</div>
+              </div>
+            </div>
+          </div>`
+  }, '');
+  reviewStart += 3;
+  document.getElementById('reviews').innerHTML += html;
+}
+
+function loadMoreReviews() {
+  let review = new Reviews(id[0], reviewStart, load3Reviews);
+  review.setRequest();
+  review.getComments();
+}
+
+function extendHideReview(event) {
+  let reviewSummary = event.target.parentElement.children[0];
+  let reviewContent = event.target.parentElement.children[1];
+  if (reviewSummary.classList.contains('review_hide')) {
+    reviewSummary.classList.remove('review_hide');
+    reviewContent.classList.add('review_hide');
+    event.target.innerText = '展开影评';
+  } else {
+    reviewSummary.classList.add('review_hide');
+    reviewContent.classList.remove('review_hide');
+    event.target.innerText = '收起';
+  }
+}
