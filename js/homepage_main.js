@@ -1,3 +1,13 @@
+Papa.parse("../data/movies.csv", {
+  download: true,
+  header: true,
+  dynamicTyping: true,
+  complete: function(results) {
+    results.data.pop();
+    let movieData = JSON.stringify(results.data);
+    localStorage.setItem('movie', movieData);
+  }
+});
 const classification = document.getElementById('classification');
 const data = new MovieData(JSON.parse(localStorage.getItem('movie')));
 const list = document.getElementsByClassName('movie_list')[0];
