@@ -39,7 +39,7 @@ function setRating(rating) {
 
 function setCover(subject) {
   document.getElementById('cover').innerHTML = `<a href="${subject.alt}">
-            <img src="${subject.images.large}"/>
+            <img src="${subject.images.large}" onerror="this.src='../images/default.png'"/>
           </a>`
 }
 
