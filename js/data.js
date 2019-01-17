@@ -1,3 +1,13 @@
+Papa.parse("../data/movies.csv", {
+  download: true,
+  header: true,
+  dynamicTyping: true,
+  complete: function(results) {
+    results.data.pop();
+    let movieData = JSON.stringify(results.data);
+    localStorage.setItem('movie',movieData);
+  }
+});
 class MovieData {
   constructor(movies) {
     this.nameToId = new Map();

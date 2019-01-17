@@ -1,5 +1,5 @@
 const classification = document.getElementById('classification');
-const data = new MovieData(movie);
+const data = new MovieData(JSON.parse(localStorage.getItem('movie')));
 const list = document.getElementsByClassName('movie_list')[0];
 let count = 0;
 let movies = data.searchByGenre(['剧情']);
