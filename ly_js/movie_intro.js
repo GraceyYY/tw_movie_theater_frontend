@@ -50,3 +50,15 @@ function generateMovieIntro(id) {
         </div>
     `;
 }
+
+function clearMovieList(){
+    list.innerHTML = '';
+    let subjects = document.getElementsByClassName('subject');
+    for(let subject of subjects) {
+        subject.classList.remove('chosen');
+    }
+}
+
+function switchGenre(genre){
+    genre.classList.add('chosen');
+}

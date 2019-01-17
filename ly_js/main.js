@@ -1,10 +1,16 @@
 const classification = document.getElementById('classification');
 const data = new MovieData(movie);
 const list = document.getElementsByClassName('movie_list')[0];
-let movies = data.searchByGenre(['剧情']);
 let count = 0;
 
-showMovies(20,movies,list);
+classification.addEventListener('click', event => {
+    count = 0;
+    clearMovieList();
+    switchGenre(event.target);
+    movies = data.searchByGenre([event.target.innerText]);
+    showMovies(20, movies,list);
+});
+
 function showMovies(num, movies, dom) {
   if (count < movies.length - num) {
     for (let i = count; i < count + num; i++) {
@@ -16,8 +22,8 @@ function showMovies(num, movies, dom) {
       generateMovieList(list, movies[i].id);
     }
     count = movies.length;
-    toggleLoadMore();
   }
+  toggleLoadMore();
 }
 
 function isAllMoviesDisplayed() {
