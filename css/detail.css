@@ -4,6 +4,9 @@ body {
 * {
   box-sizing: border-box;
 }
+a {
+  text-decoration: inherit;
+}
 .main {
   margin-top: 80px;
   padding: 5px;
@@ -26,14 +29,36 @@ body {
   width: 100%;
   height: 100%;
 }
+.rating {
+  float: right;
+  margin-top: 80px;
+  margin-right: 80px;
+  text-align: center;
+}
+.rating_text {
+  font-size: 16px;
+  color: #505050;
+}
+.rating_num {
+  font-size: 20px;
+  color: #000000;
+}
+.rating_star {
+  width: 150px;
+  height: 30px;
+  background: url(../images/rating.png);
+  background-position: 0px 300px;
+}
 .details {
   margin-left: 170px;
+  margin-right: 250px;
 }
 .title {
   display: inline-block;
   margin-top: 15px;
   margin-bottom: 20px;
   font-size: 28px;
+  line-height: 30px;
   color: #0FBDEF;
 }
 .year {
@@ -44,11 +69,21 @@ body {
   margin-left: 15px;
   margin-top: 5px;
 }
+.item a {
+  color: #3967C5;
+}
 .comments {
   background: #FFFFFF;
   margin: auto;
 }
-.comment_item {}
+.comments_header {
+    margin: 20px 0px 10px 20px;
+    font-size: 28px;
+    color: #2B8ED3
+}
+.comment_item {
+  min-height: 60px;
+}
 .comment_item:not(:last-child):after {
   content: '';
   display: block;
@@ -58,18 +93,42 @@ body {
   background: #9B9B9B;
   transform: scaleY(0.5);
 }
-.comment_head {
-  margin-left: 10px;
+.avatar {
+  width: 48px;
+  height: 48px;
   margin-top: 10px;
+  margin-left: 10px;
+  float: left;
+}
+.avatar img {
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px 1px #A0A0A0;
+}
+.comment_main {
+  margin-left: 75px;
+  padding-top: 5px;
+  min-height: 70px;
+}
+.comment_head {
   font-size: 20px;
+  margin-top: 10px;
   color: #0094FF;
+}
+.comment_rating {
+  font-size: 16px;
+  background: #CC543A;
+  color: #FFFFFF;
+  border-radius: 5px;
+  padding: 0px 3px;
 }
 .comment_time {
   font-size: 14px;
   color: #898989;
+  margin-left: 15px;
 }
 .comment_text {
-  width: 80%;
+  width: 90%;
+  font-size: 14px;
   margin-left: 20px;
   margin-bottom: 10px;
 }
@@ -81,9 +140,9 @@ body {
   -webkit-box-orient: vertical;
 }
 .extend_btn {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #2C73D2;
+  margin-left: 20px;
+  text-decoration: none;
+  color: #2C73D2;
 }
 .recommend {
   background: #FFFFFF;
