@@ -427,3 +427,11 @@ nav a:visited {
   margin: 20px auto 0px auto;
   padding: 20px 0px 0px 20px;
 }
+
+.top {
+  position: fixed;
+  font-size: 48px;
+  bottom: 10px;
+  right: 30px;
+  color: #8B7264;
+}
