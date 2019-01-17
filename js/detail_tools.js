@@ -6,7 +6,9 @@ function setTitle(subject) {
             <span class="year">
               ${year}
             </span>`;
-  document.getElementById('commentsHeader').innerHTML = `${title}豆瓣短评`;
+  document.getElementById('commentsHeader').innerHTML = `${title}·豆瓣短评`;
+  document.getElementById('reviewsHeader').innerHTML = `${title}·豆瓣影评`;
+  document.getElementsByTagName('title')[0].innerText = `思沃影院·${title}`;
 }
 
 function setDetailLink(data, id) {
