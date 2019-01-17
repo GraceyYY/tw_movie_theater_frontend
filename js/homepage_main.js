@@ -20,13 +20,18 @@ function search() {
   clearMovieList();
   if (data.nameToId.has(value)) {
     movies.push(data.searchByName(value));
-    showMovies(1, movies, list);
   } else if (data.genresToId[value]) {
     movies = data.searchByGenre([value]);
+  } else {
+    let names = data.nameToId.keys();
+    for (let name of names) {
+      if (name.includes(value)) {
+        movies.push(data.searchByName(name));
+      }
+    }
+  }
+  if (movies) {
     showMovies(20, movies, list);
-  } else if (data.idToDetail.has(parseInt(value))) {
-    movies.push(data.searchById(parseInt(value)));
-    showMovies(1, movies, list);
   } else {
     showErrorMessege(true);
   }
