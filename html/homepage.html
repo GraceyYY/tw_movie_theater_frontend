@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/all.css"/>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="../data/movie_data.js"></script>
-    <script src="../ly_js/data.js"></script>
+    <script src="../js/data.js"></script>
   </head>
   <body>
     <header>
@@ -28,7 +28,7 @@
           </div>
           <label class="search_bar">
             <input id="search" placeholder="请输入电影名/ID/分类"/>
-            <span id="search_btn">
+            <span id="search_btn" onclick="search()">
               <i class="fas fa-search"></i>
               搜电影
             </span>
@@ -75,13 +75,17 @@
       </div>
       <div class="movie_list"></div>
       <div class="load_more">
-          <span id="load_more" onclick="loadMore()">加载更多电影</span>
+        <span id="load_more" onclick="loadMore()">加载更多电影</span>
+      </div>
+      <div id="error_messege" class="error">
+        <p>对不起，未能查询到您搜索的电影或分类</p>
+        <p>请您确认输入的电影名称/ID/分类是否正确</p>
       </div>
     </main>
     <a class="top" href="#">
       <i class="far fa-arrow-alt-circle-up"></i>
     </a>
   </body>
-  <script src="../ly_js/movie_intro.js"></script>
-  <script src="../ly_js/main.js"></script>
+  <script src="../js/homepage_view.js"></script>
+  <script src="../js/homepage_main.js"></script>
 </html>
