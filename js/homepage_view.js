@@ -7,9 +7,9 @@ function generateMovieIntro(id) {
   return `
     <div class="movie">
           <div class="brief">
-            <img src=${movie.image} onerror="this.src='../ly_images/default.png'"></img>
+            <img src=${movie.image} onerror="this.src='../images/default.png'"></img>
             <div class="detail">
-              <img src=${movie.image} onerror="this.src='../ly_images/default.png'"></img>
+              <img src=${movie.image} onerror="this.src='../images/default.png'"></img>
               <div class="detail_card">
                 <div class="row">
                   <a class="name" href="./detail.html?id=${movie.id}" target="_blank">${movie.title}</a>
