@@ -1,7 +1,14 @@
-function generateMovieList(count, movies, dom){
-    for(let i = count; i < count + 20; i++) {
-        dom.innerHTML += generateMovieIntro(movies[i].id);
+function toggleLoadMore(){
+    const loadMore = document.getElementById('load_more');
+    if(isAllMoviesDisplayed()){
+        loadMore.innerText = '已显示全部电影';
+    }else{
+        loadMore.innerText = '加载更多电影';
     }
+}
+
+function generateMovieList(dom, id) {
+  dom.innerHTML += generateMovieIntro(id);
 }
 
 function generateMovieIntro(id) {

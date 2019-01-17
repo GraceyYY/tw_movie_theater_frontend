@@ -47,9 +47,9 @@
       </div>
     </header>
     <main>
-      <div class="classification">
+      <div id="classification">
         <div class="row medium_width">
-          <span class="subject">剧情</span>
+          <span class="subject chosen">剧情</span>
           <span class="subject">喜剧</span>
           <span class="subject">爱情</span>
           <span class="subject">科幻</span>
@@ -75,7 +75,7 @@
       </div>
       <div class="movie_list"></div>
       <div class="load_more">
-          <span>加载更多电影</span>
+          <span id="load_more" onclick="loadMore()">加载更多电影</span>
       </div>
     </main>
     <a class="top" href="#">
@@ -83,4 +83,5 @@
     </a>
   </body>
   <script src="../ly_js/movie_intro.js"></script>
+  <script src="../ly_js/main.js"></script>
 </html>

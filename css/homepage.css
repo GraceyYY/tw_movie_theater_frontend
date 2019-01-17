@@ -107,7 +107,7 @@ main {
   justify-content: space-between;
 }
 
-.classification {
+#classification {
   width: 100%;
   margin: 0px auto;
   padding: 5px;
@@ -122,10 +122,16 @@ main {
   padding: 5px 15px;
   border-radius: 3px;
   color: #686868;
+  transition: 0.1s;
 }
 
 .subject:hover {
   cursor: pointer;
+  background-color: #CDCABE;
+  color: #ffffff;
+}
+
+.chosen {
   background-color: #CDCABE;
   color: #ffffff;
 }
