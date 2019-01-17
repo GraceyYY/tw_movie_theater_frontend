@@ -46,12 +46,12 @@ function createOneComment(comment) {
                 评分：${comment.rating.value}
               </span>
               <span class="comment_time">
-                ${comment.created_at}
+                发表于${comment.created_at}
               </span>
             </div>
-            <div class="comment_text">
+            <p class="comment_text">
               ${comment.content}
-            </div>
+            </p>
           </div>
         </div>`;
   let comments = document.getElementById('comments');

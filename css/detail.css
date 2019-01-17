@@ -76,6 +76,11 @@ a {
   background: #FFFFFF;
   margin: auto;
 }
+.comments_header {
+    margin: 20px 0px 10px 20px;
+    font-size: 28px;
+    color: #2B8ED3
+}
 .comment_item {
   min-height: 60px;
 }
@@ -100,8 +105,8 @@ a {
   box-shadow: 0px 0px 8px 1px #A0A0A0;
 }
 .comment_main {
-  margin-left: 15px;
-  display: inline-block;
+  margin-left: 75px;
+  padding-top: 5px;
   min-height: 70px;
 }
 .comment_head {
@@ -111,14 +116,19 @@ a {
 }
 .comment_rating {
   font-size: 16px;
-  color: #CC543A;
+  background: #CC543A;
+  color: #FFFFFF;
+  border-radius: 5px;
+  padding: 0px 3px;
 }
 .comment_time {
   font-size: 14px;
   color: #898989;
+  margin-left: 15px;
 }
 .comment_text {
-  width: 80%;
+  width: 90%;
+  font-size: 14px;
   margin-left: 20px;
   margin-bottom: 10px;
 }

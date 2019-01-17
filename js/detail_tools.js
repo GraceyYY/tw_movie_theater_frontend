@@ -5,7 +5,8 @@ function setTitle(subject) {
   document.getElementById('title').innerHTML = `${title}(${originalTitle})
             <span class="year">
               ${year}
-            </span>`
+            </span>`;
+  document.getElementById('commentsHeader').innerHTML = `${title}豆瓣短评`;
 }
 
 function setDetailLink(data, id) {
