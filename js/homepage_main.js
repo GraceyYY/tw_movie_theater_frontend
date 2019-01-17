@@ -15,10 +15,12 @@ let count = 0;
 let movies = [];
 init();
 classification.addEventListener('click', event => {
-  resetPage();
-  switchGenre(event.target);
-  movies = data.searchByGenre([event.target.innerText]);
-  showMovies(20, movies, list);
+  if (event.target.nodeName === 'SPAN') {
+    resetPage();
+    switchGenre(event.target);
+    movies = data.searchByGenre([event.target.innerText]);
+    showMovies(20, movies, list);
+  }
 });
 
 function init() {
