@@ -12,8 +12,8 @@ const classification = document.getElementById('classification');
 const data = new MovieData(JSON.parse(localStorage.getItem('movie')));
 const list = document.getElementsByClassName('movie_list')[0];
 let count = 0;
-let movies = data.searchByGenre(['剧情']);
-showMovies(20, movies, list);
+let movies = [];
+init();
 classification.addEventListener('click', event => {
   count = 0;
   clearMovieList();
@@ -22,8 +22,18 @@ classification.addEventListener('click', event => {
   showMovies(20, movies, list);
 });
 
-function searchMovie(){
-    search(document.getElementById('search').value);
+function init() {
+  if (localStorage.getItem('search')) {
+    search(localStorage.getItem('search'));
+    localStorage.removeItem('search');
+  } else {
+    movies = data.searchByGenre(['剧情']);
+    showMovies(20, movies, list);
+  }
+}
+
+function searchMovie() {
+  search(document.getElementById('search').value);
 }
 
 function search(value) {
