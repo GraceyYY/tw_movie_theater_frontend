@@ -13,7 +13,7 @@ function setTitle(subject) {
 
 function setDetailLink(data, id) {
   let aTags = data.map(cur => {
-    return `<a href="${cur.alt}">
+    return `<a href="${cur.alt}" target="_blank">
                 ${cur.name}
               </a>`
   });
@@ -38,7 +38,7 @@ function setRating(rating) {
 }
 
 function setCover(subject) {
-  document.getElementById('cover').innerHTML = `<a href="${subject.alt}">
+  document.getElementById('cover').innerHTML = `<a href="${subject.alt}" target="_blank">
             <img src="${subject.images.large}" onerror="this.src='../images/default.png'"/>
           </a>`
 }
@@ -50,7 +50,7 @@ function createOneComment(comment) {
   let content = comment.content;
   let html = `<div class="comment_item">
           <div class="avatar">
-            <a href="${comment.author.alt}">
+            <a href="${comment.author.alt}" target="_blank">
               <img src="${comment.author.avatar}"/>
             </a>
           </div>
@@ -104,7 +104,7 @@ function load3Reviews(reviews) {
     }, '');
     return acc += `<div class="comment_item">
             <div class="avatar">
-              <a href="${cur.author.alt}">
+              <a href="${cur.author.alt}" target="_blank">
                 <img src="${cur.author.avatar}"/>
               </a>
             </div>
