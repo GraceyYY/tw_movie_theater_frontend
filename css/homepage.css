@@ -264,10 +264,13 @@ main {
   opacity: 0.8;
 }
 
+/*load more button*/
+
 .load_more {
   text-align: center;
   margin: 20px auto;
 }
+
 .load_more span {
   background-color: #CC543A;
   color: #ffffff;
@@ -278,4 +281,22 @@ main {
 .load_more:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+/*error messege*/
+
+.error {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+  background-color: #ffffff;
+  color: #CC543A;
+  font-size: 24px;
+  visibility:hidden;
+}
+
+.show_error {
+  visibility: visible;
 }
