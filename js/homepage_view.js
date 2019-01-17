@@ -33,7 +33,7 @@ function generateMovieIntro(id) {
           <div class="brief_introduction">
             <div class="row wide_width">
               <a class="name" href="./detail.html?id=${movie.id}" target="_blank">${movie.title}</a>
-              <span class="score">8.7</span>
+              <span class="score">${movie.rating}</span>
             </div>
             <span class="title">导演：</span>
             <span class="directors small_font">${movie.directors}</span>
