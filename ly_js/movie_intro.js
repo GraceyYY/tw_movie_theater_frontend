@@ -1,11 +1,6 @@
-const data = new MovieData(movie);
-const list = document.getElementsByClassName('movie_list')[0];
-let movies = data.searchByGenre(['剧情']);
-let count = 0;
-
-function generateMovieList(count, movies){
+function generateMovieList(count, movies, dom){
     for(let i = count; i < count + 20; i++) {
-        list.innerHTML += generateMovieIntro(movies[i].id);
+        dom.innerHTML += generateMovieIntro(movies[i].id);
     }
 }
 
