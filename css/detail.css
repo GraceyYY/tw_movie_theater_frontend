@@ -158,7 +158,7 @@ a {
 .comment_text {
   width: 90%;
   font-size: 14px;
-  margin-left: 20px;
+  margin-left: 25px;
   margin-bottom: 10px;
 }
 
@@ -185,6 +185,10 @@ a {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+.review_title {
+  font-size: 18px;
 }
 
 .indent {
