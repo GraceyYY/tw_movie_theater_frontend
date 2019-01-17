@@ -44,24 +44,22 @@ function generateMovieIntro(id) {
 
 function clearMovieList() {
   list.innerHTML = '';
+}
+
+function clearChosenSubject() {
   let subjects = document.getElementsByClassName('subject');
   for (let subject of subjects) {
     subject.classList.remove('chosen');
   }
-  showErrorMessege(false);
 }
 
 function switchGenre(genre) {
   genre.classList.add('chosen');
 }
 
-function toggleLoadMore() {
+function needLoadMore(boolean) {
   const loadMore = document.getElementById('load_more');
-  if (isAllMoviesDisplayed()) {
-    loadMore.innerText = '已显示全部电影';
-  } else {
-    loadMore.innerText = '加载更多电影';
-  }
+  loadMore.innerText = boolean ? '加载更多电影' : '已显示全部电影';
 }
 
 function clearInput() {

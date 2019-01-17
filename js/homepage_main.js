@@ -15,8 +15,7 @@ let count = 0;
 let movies = [];
 init();
 classification.addEventListener('click', event => {
-  count = 0;
-  clearMovieList();
+  resetPage();
   switchGenre(event.target);
   movies = data.searchByGenre([event.target.innerText]);
   showMovies(20, movies, list);
@@ -32,15 +31,21 @@ function init() {
   }
 }
 
+function resetPage() {
+  count = 0;
+  movies = [];
+  clearMovieList();
+  clearChosenSubject();
+  showErrorMessege(false);
+}
+
 function searchMovie() {
   search(document.getElementById('search').value);
 }
 
 function search(value) {
-  count = 0;
-  movies = [];
+  resetPage();
   clearInput();
-  clearMovieList();
   if (data.idToDetail.has(parseInt(value))) {
     movies.push(data.searchById(parseInt(value)));
   } else if (data.genresToId[value]) {
@@ -72,11 +77,7 @@ function showMovies(num, movies, dom) {
     }
     count = movies.length;
   }
-  toggleLoadMore();
-}
-
-function isAllMoviesDisplayed() {
-  return count === movies.length;
+  needLoadMore(!(count === movies.length));
 }
 
 function loadMore() {
