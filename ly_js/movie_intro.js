@@ -21,7 +21,7 @@ function generateMovieIntro(id) {
               <img src=${movie.image} onerror="this.src='../ly_images/default.png'"></img>
               <div class="detail_card">
                 <div class="row">
-                  <a class="name" href="./detail.html?id=${movie.id}">${movie.title}</a>
+                  <a class="name" href="./detail.html?id=${movie.id}" target="_blank">${movie.title}</a>
                   <span class="year small_font">${movie.year}</span>
                 </div>
                 <div class="subjects">
@@ -41,7 +41,7 @@ function generateMovieIntro(id) {
           </div>
           <div class="brief_introduction">
             <div class="row wide_width">
-              <a class="name" href="./detail.html?id=${movie.id}">${movie.title}</a>
+              <a class="name" href="./detail.html?id=${movie.id}" target="_blank">${movie.title}</a>
               <span class="score">8.7</span>
             </div>
             <span class="title">导演：</span>
