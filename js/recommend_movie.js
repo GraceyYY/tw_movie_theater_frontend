@@ -64,5 +64,6 @@ function generateMovieIntro(id) {
 function search() {
   const value = document.getElementById('search').value;
   localStorage.setItem('search', value);
-  window.open('homepage.html');
+  window.open('homepage.html#classification');
+  document.getElementById('search').value = '';
 }
