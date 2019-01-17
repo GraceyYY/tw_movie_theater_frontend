@@ -18,8 +18,8 @@ function search() {
   movies = [];
   clearInput();
   clearMovieList();
-  if (data.nameToId.has(value)) {
-    movies.push(data.searchByName(value));
+  if (data.idToDetail.has(parseInt(value))) {
+    movies.push(data.searchById(parseInt(value)));
   } else if (data.genresToId[value]) {
     movies = data.searchByGenre([value]);
   } else {
@@ -27,6 +27,7 @@ function search() {
     for (let name of names) {
       if (name.includes(value)) {
         movies.push(data.searchByName(name));
+        console.log(name);
       }
     }
   }
