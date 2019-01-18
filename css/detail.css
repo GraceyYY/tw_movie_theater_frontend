@@ -20,9 +20,9 @@ a {
 
 .movie {
   background: #FFFFFF;
-  min-height: 230px;
+  min-height: 250px;
   margin: auto;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
 .cover {
@@ -53,7 +53,7 @@ a {
 
 .rating_num {
   font-size: 20px;
-  color: #000000;
+  color: #BE5B42;
 }
 
 .rating_star {
@@ -66,6 +66,10 @@ a {
 .details {
   margin-left: 170px;
   margin-right: 200px;
+}
+
+.details .item {
+  color: #686868;
 }
 
 .title {
@@ -97,19 +101,20 @@ a {
 }
 
 .comments_header {
-  margin: 20px 0px 10px 20px;
+  margin: 30px 40px;
   font-size: 28px;
   color: #866D5F;
 }
 
 .comment_item {
   min-height: 60px;
+  padding-bottom: 10px;
 }
 
 .comment_item:not(:last-child):after {
   content: '';
   display: block;
-  width: 96%;
+  width: 94%;
   height: 1px;
   margin: auto;
   background: #9B9B9B;
@@ -139,14 +144,16 @@ a {
   font-size: 20px;
   margin-top: 10px;
   color: #693F3F;
+  padding-bottom: 10px;
 }
 
 .comment_rating {
-  font-size: 16px;
+  font-size: 12px;
   background: #CC543A;
   color: #FFFFFF;
-  border-radius: 5px;
-  padding: 0px 3px;
+  border-radius: 8px;
+  padding: 2px 4px;
+  opacity: 0.9
 }
 
 .comment_time {
@@ -158,16 +165,16 @@ a {
 .comment_text {
   width: 90%;
   font-size: 14px;
-  margin-left: 25px;
-  margin-bottom: 10px;
+  margin: 20px auto 20px 30px;
+  color: #686868;
 }
 
 .loadmore {
   box-shadow: 0px 0px 8px 3px #D1D1D1;
   width: 30%;
   height: 40px;
-  margin: auto;
-  font-size: 20px;
+  margin: 40px auto;
+  font-size: 16px;
   line-height: 40px;
   text-align: center;
   background: #CC543A;
@@ -189,6 +196,8 @@ a {
 
 .review_title {
   font-size: 18px;
+  margin: 10px 0px;
+  color: #BE5B42;
 }
 
 .indent {
@@ -208,6 +217,14 @@ a {
 
 .review_hide {
   display: none;
+}
+
+.review_summary {
+  margin-bottom: 20px;
+}
+
+.review_content {
+  margin-bottom: 20px;
 }
 
 .recommend {
