@@ -1,51 +1,3 @@
-function generateMovieList(dom, id) {
-  dom.innerHTML += generateMovieIntro(id);
-}
-
-function generateMovieIntro(id) {
-  let movie = data.searchById(id);
-  return `
-    <div class="movie">
-          <div class="brief">
-            <img src=${movie.image} onerror="this.src='../images/default.png'"></img>
-            <div class="detail">
-              <img src=${movie.image} onerror="this.src='../images/default.png'"></img>
-              <div class="detail_card">
-                <div class="row">
-                  <a class="name" href="./detail.html?id=${movie.id}" target="_blank">${movie.title}</a>
-                  <span class="year small_font">${movie.year}</span>
-                </div>
-                <div class="subjects">
-                  <span class="title">分类：</span>
-                  <span class="small_font">${movie.genres}</span>
-                </div>
-                <div class="cast">
-                  <span class="title">主演：</span>
-                  <span class="small_font">${movie.casts}</span>
-                </div>
-                <div class="icons">
-                  <i class="far fa-heart"></i>
-                  <i class="far fa-play-circle"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="brief_introduction">
-            <div class="row wide_width">
-              <a class="name" href="./detail.html?id=${movie.id}" target="_blank">${movie.title}</a>
-              <span class="score">${movie.rating}</span>
-            </div>
-            <span class="title">导演：</span>
-            <span class="directors small_font">${movie.directors}</span>
-          </div>
-        </div>
-    `;
-}
-
-function clearMovieList() {
-  list.innerHTML = '';
-}
-
 function clearChosenSubject() {
   let subjects = document.getElementsByClassName('subject');
   for (let subject of subjects) {
@@ -57,21 +9,14 @@ function switchGenre(genre) {
   genre.classList.add('chosen');
 }
 
-function needLoadMore(boolean) {
-  const loadMore = document.getElementById('load_more');
-  loadMore.innerText = boolean ? '加载更多电影' : '已显示全部电影';
-}
+const imgUrls = ['http://puui.qpic.cn/media_img/0/vnewpictag_4_81_1546932831904820_14323_1680_580/0', 'http://puui.qpic.cn/media_img/0/vnewpictag_6_353_1547193470360262_32385_1680_580/0', 'http://puui.qpic.cn/media_img/0/vnewpictag_8_1292_1547193478591265_30717_1680_580/0'];
 
-function clearInput() {
-  document.getElementById('search').value = '';
+function showPosters() {
+  const poster = document.getElementById('big_poster');
+  for (let i = 0; i < imgUrls.length; i++) {
+    setTimeout(() => {
+      poster.setAttribute('src', imgUrls[i]);
+    }, 5000 * i);
+  }
 }
-
-function showErrorMessage() {
-  let errorMessege = document.getElementById('error_messege');
-  errorMessege.classList.add('show_error');
-}
-
-function clearErrorMessage() {
-  let errorMessege = document.getElementById('error_messege');
-  errorMessege.classList.remove('show_error');
-}
+setInterval('showPosters()', 15000);
