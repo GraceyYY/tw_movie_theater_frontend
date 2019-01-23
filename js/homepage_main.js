@@ -43,6 +43,7 @@ function resetPage() {
 
 function searchMovie() {
   search(document.getElementById('search').value);
+  showMovies(20, movies, list);
 }
 
 function search(value) {
@@ -52,7 +53,7 @@ function search(value) {
   } else {
     let names = data.nameToId.keys();
     for (let name of names) {
-      if (name.includes(value)) {
+      if (name.includes(value.toLowerCase())) {
         movies.push(data.searchByName(name));
       }
     }

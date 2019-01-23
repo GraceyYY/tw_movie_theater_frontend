@@ -6,7 +6,7 @@ class MovieData {
     movies.forEach(movie => {
       this.nameToId.set(movie.title, movie.id);
       if (movie.title != movie.original_title) {
-        this.nameToId.set(movie.original_title, movie.id);
+        this.nameToId.set(movie.original_title.toLowerCase(), movie.id);
       }
       this.idToDetail.set(movie.id, movie);
       let genres = movie.genres.split(',');
