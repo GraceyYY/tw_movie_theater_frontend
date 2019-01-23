@@ -47,10 +47,7 @@ function searchMovie() {
 
 function search(value) {
   resetPage();
-  clearInput();
-  if (data.idToDetail.has(parseInt(value))) {
-    movies.push(data.searchById(parseInt(value)));
-  } else if (data.genresToId[value]) {
+  if (data.genresToId[value]) {
     movies = data.searchByGenre([value]);
   } else {
     let names = data.nameToId.keys();
@@ -59,11 +56,6 @@ function search(value) {
         movies.push(data.searchByName(name));
       }
     }
-  }
-  if (movies.length > 0) {
-    showMovies(20, movies, list);
-  } else {
-    showErrorMessege(true);
   }
 }
 
