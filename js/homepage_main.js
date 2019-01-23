@@ -38,7 +38,7 @@ function resetPage() {
   movies = [];
   clearMovieList();
   clearChosenSubject();
-  showErrorMessege(false);
+  clearErrorMessage();
 }
 
 function searchMovie() {
@@ -61,18 +61,22 @@ function search(value) {
 }
 
 function showMovies(num, movies, dom) {
-  if (count < movies.length - num) {
-    for (let i = count; i < count + num; i++) {
-      generateMovieList(list, movies[i].id);
+  if (movies.length > 0) {
+    if (count < movies.length - num) {
+      for (let i = count; i < count + num; i++) {
+        generateMovieList(list, movies[i].id);
+      }
+      count += num;
+    } else if (count < movies.length) {
+      for (let i = count; i < movies.length; i++) {
+        generateMovieList(list, movies[i].id);
+      }
+      count = movies.length;
     }
-    count += num;
-  } else if (count < movies.length) {
-    for (let i = count; i < movies.length; i++) {
-      generateMovieList(list, movies[i].id);
-    }
-    count = movies.length;
+    needLoadMore(!(count === movies.length));
+  } else {
+    showErrorMessage();
   }
-  needLoadMore(!(count === movies.length));
 }
 
 function loadMore() {

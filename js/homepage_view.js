@@ -66,11 +66,12 @@ function clearInput() {
   document.getElementById('search').value = '';
 }
 
-function showErrorMessege(boolean) {
+function showErrorMessage() {
   let errorMessege = document.getElementById('error_messege');
-  if (boolean) {
-    errorMessege.classList.add('show_error');
-  } else {
-    errorMessege.classList.remove('show_error');
-  }
+  errorMessege.classList.add('show_error');
+}
+
+function clearErrorMessage() {
+  let errorMessege = document.getElementById('error_messege');
+  errorMessege.classList.remove('show_error');
 }
