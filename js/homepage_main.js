@@ -8,21 +8,21 @@ Papa.parse("../data/movies.csv", {
     localStorage.setItem('movie', movieData);
   }
 });
-const classification = document.getElementById('classification');
-const data = new MovieData(JSON.parse(localStorage.getItem('movie')));
+const DATA = new MovieData(JSON.parse(localStorage.getItem('movie')));
+let classification = document.getElementById('classification');
 let movieList;
 init();
 classification.addEventListener('click', event => {
   if (event.target.nodeName === 'SPAN') {
     resetPage();
     switchGenre(event.target);
-    movieList.movies = data.searchByGenre([event.target.innerText]);
+    movieList.movies = DATA.searchByGenre([event.target.innerText]);
     movieList.showMovie(20);
   }
 });
 
 function init() {
-  const list = document.getElementsByClassName('movie_list')[0];
+  let list = document.getElementsByClassName('movie_list')[0];
   let errorMessege = document.getElementById('error_messege');
   let loadMore = document.getElementById('load_more');
   movieList = new MovieList(list, loadMore, errorMessege);
@@ -30,7 +30,7 @@ function init() {
     search(localStorage.getItem('search'));
     localStorage.removeItem('search');
   } else {
-    movieList.movies = data.searchByGenre(['剧情']);
+    movieList.movies = DATA.searchByGenre(['剧情']);
     movieList.showMovie(20);
   }
 }
@@ -47,13 +47,13 @@ function searchMovie() {
 
 function search(value) {
   resetPage();
-  if (data.genresToId[value]) {
-    movieList.movies = data.searchByGenre([value]);
+  if (DATA.genresToId[value]) {
+    movieList.movies = DATA.searchByGenre([value]);
   } else {
-    let names = data.nameToId.keys();
+    let names = DATA.nameToId.keys();
     for (let name of names) {
       if (name.includes(value.toLowerCase())) {
-        movieList.movies.push(data.searchByName(name));
+        movieList.movies.push(DATA.searchByName(name));
       }
     }
   }
