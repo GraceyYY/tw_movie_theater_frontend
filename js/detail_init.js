@@ -1,11 +1,9 @@
-var commentPage = 0;
-var reviewStart = 0;
+var commentsStart = 0;
+var reviewsStart = 0;
 var id = window.location.href.match(/[0-9]{7,8}/);
-window.onload = function() {
-  let comment = new Comments(id[0], commentPage, pageInit);
-  comment.setRequest();
-  comment.getComments();
-  let review = new Reviews(id[0], reviewStart, load3Reviews);
-  review.setRequest();
-  review.getComments();
-}
+var subject = new Request(id[0], subjectInit, 'subject');
+subject.getData(0);
+var comments = new Request(id[0], load5Comments, 'comments');
+comments.getData(commentsStart);
+var reviews = new Request(id[0], load3Reviews, 'reviews');
+reviews.getData(reviewsStart);

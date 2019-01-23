@@ -73,27 +73,24 @@ function createOneComment(comment) {
   comments.innerHTML += html;
 }
 
-function loadmore() {
-  let comment = new Comments(id[0], commentPage, loadMoreComments);
-  comment.setRequest();
-  comment.getComments();
+function loadMoreComments() {
+  comments.getData(commentsStart);
 }
 
-function loadMoreComments(comment) {
-  comment.comments.forEach(cur => createOneComment(cur));
-  commentPage += 5;
+function load5Comments(comments) {
+  comments.forEach(cur => createOneComment(cur));
+  commentsStart += 5;
 }
 
-function pageInit(comment) {
-  setTitle(comment.subject);
-  setCover(comment.subject);
-  setDetailLink(comment.subject.directors, 'directors');
-  setDetailLink(comment.subject.casts, 'casts');
-  setDetail(comment.subject.genres, 'genres');
-  setDetail(comment.subject.pubdates, 'pubdates');
-  setDetail(comment.subject.durations, 'durations');
-  setRating(comment.subject.rating.average);
-  loadMoreComments(comment);
+function subjectInit(subject) {
+  setTitle(subject);
+  setCover(subject);
+  setDetailLink(subject.directors, 'directors');
+  setDetailLink(subject.casts, 'casts');
+  setDetail(subject.genres, 'genres');
+  setDetail(subject.pubdates, 'pubdates');
+  setDetail(subject.durations, 'durations');
+  setRating(subject.rating.average);
 }
 
 function load3Reviews(reviews) {
@@ -127,14 +124,12 @@ function load3Reviews(reviews) {
             </div>
           </div>`
   }, '');
-  reviewStart += 3;
+  reviewsStart += 3;
   document.getElementById('reviews').innerHTML += html;
 }
 
 function loadMoreReviews() {
-  let review = new Reviews(id[0], reviewStart, load3Reviews);
-  review.setRequest();
-  review.getComments();
+  reviews.getData(reviewsStart);
 }
 
 function extendHideReview(event) {
