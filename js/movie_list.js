@@ -1,6 +1,6 @@
 class MovieList {
-  constructor(movies, list, loadMore, errorMessege) {
-    this.movies = movies;
+  constructor(list, loadMore, errorMessege) {
+    this.movies = [];
     this.list = list;
     this.loadMore = loadMore;
     this.errorMessege = errorMessege;
