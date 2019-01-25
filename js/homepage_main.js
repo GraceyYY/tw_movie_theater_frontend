@@ -8,91 +8,57 @@ Papa.parse("../data/movies.csv", {
     localStorage.setItem('movie', movieData);
   }
 });
-const classification = document.getElementById('classification');
-const data = new MovieData(JSON.parse(localStorage.getItem('movie')));
-const list = document.getElementsByClassName('movie_list')[0];
-let count = 0;
-let movies = [];
+const DATA = new MovieData(JSON.parse(localStorage.getItem('movie')));
+let classification = document.getElementById('classification');
+let movieList;
 init();
 classification.addEventListener('click', event => {
   if (event.target.nodeName === 'SPAN') {
     resetPage();
     switchGenre(event.target);
-    movies = data.searchByGenre([event.target.innerText]);
-    showMovies(20, movies, list);
+    movieList.movies = DATA.searchByGenre([event.target.innerText]);
+    movieList.showMovie(20);
   }
 });
 
 function init() {
+  let list = document.getElementsByClassName('movie_list')[0];
+  let errorMessege = document.getElementById('error_messege');
+  let loadMore = document.getElementById('load_more');
+  movieList = new MovieList(list, loadMore, errorMessege);
   if (localStorage.getItem('search')) {
     search(localStorage.getItem('search'));
     localStorage.removeItem('search');
   } else {
-    movies = data.searchByGenre(['剧情']);
-    showMovies(20, movies, list);
+    movieList.movies = DATA.searchByGenre(['剧情']);
+    movieList.showMovie(20);
   }
 }
 
 function resetPage() {
-  count = 0;
-  movies = [];
-  clearMovieList();
+  movieList.reset();
   clearChosenSubject();
-  showErrorMessege(false);
 }
 
 function searchMovie() {
   search(document.getElementById('search').value);
+  movieList.showMovie(20);
 }
 
 function search(value) {
   resetPage();
-  clearInput();
-  if (data.idToDetail.has(parseInt(value))) {
-    movies.push(data.searchById(parseInt(value)));
-  } else if (data.genresToId[value]) {
-    movies = data.searchByGenre([value]);
+  if (DATA.genresToId[value]) {
+    movieList.movies = DATA.searchByGenre([value]);
   } else {
-    let names = data.nameToId.keys();
+    let names = DATA.nameToId.keys();
     for (let name of names) {
-      if (name.includes(value)) {
-        movies.push(data.searchByName(name));
+      if (name.includes(value.toLowerCase())) {
+        movieList.movies.push(DATA.searchByName(name));
       }
     }
   }
-  if (movies.length > 0) {
-    showMovies(20, movies, list);
-  } else {
-    showErrorMessege(true);
-  }
-}
-
-function showMovies(num, movies, dom) {
-  if (count < movies.length - num) {
-    for (let i = count; i < count + num; i++) {
-      generateMovieList(list, movies[i].id);
-    }
-    count += num;
-  } else if (count < movies.length) {
-    for (let i = count; i < movies.length; i++) {
-      generateMovieList(list, movies[i].id);
-    }
-    count = movies.length;
-  }
-  needLoadMore(!(count === movies.length));
 }
 
 function loadMore() {
-  showMovies(20, movies, list);
+  movieList.showMovie(20);
 }
-const imgUrls = ['http://puui.qpic.cn/media_img/0/vnewpictag_4_81_1546932831904820_14323_1680_580/0', 'http://puui.qpic.cn/media_img/0/vnewpictag_6_353_1547193470360262_32385_1680_580/0', 'http://puui.qpic.cn/media_img/0/vnewpictag_8_1292_1547193478591265_30717_1680_580/0'];
-
-function showPosters() {
-  const poster = document.getElementById('big_poster');
-  for (let i = 0; i < imgUrls.length; i++) {
-    setTimeout(() => {
-      poster.setAttribute('src', imgUrls[i]);
-    }, 5000 * i);
-  }
-}
-setInterval('showPosters()', 15000);

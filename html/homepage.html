@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../css/homepage.css"/>
     <link rel="stylesheet" href="../css/all.css"/>
-    <script src="../js/papaparse.min.js" type="text/javascript"></script>
-    <script src="../js/data.js" type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -26,7 +24,7 @@
             </span>
           </div>
           <label class="search_bar">
-            <input id="search" placeholder="请输入电影名/ID/分类"/>
+            <input id="search" placeholder="请输入电影名/分类"/>
             <span id="search_btn" onclick="searchMovie()">
               <i class="fas fa-search"></i>
               搜电影
@@ -78,13 +76,16 @@
       </div>
       <div id="error_messege" class="error">
         <p>对不起，未能查询到您搜索的电影或分类</p>
-        <p>请您确认输入的电影名称/ID/分类是否正确</p>
+        <p>请您确认输入的电影名称/分类是否正确</p>
       </div>
     </main>
     <a class="top" href="#">
       <i class="far fa-arrow-alt-circle-up"></i>
     </a>
   </body>
+  <script src="../js/papaparse.min.js" type="text/javascript"></script>
+  <script src="../js/data.js" type="text/javascript"></script>
+  <script src="../js/movie_list.js" type="text/javascript"></script>
   <script src="../js/homepage_view.js" type="text/javascript"></script>
   <script src="../js/homepage_main.js" type="text/javascript"></script>
 </html>
