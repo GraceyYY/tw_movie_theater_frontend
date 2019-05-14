@@ -16,9 +16,15 @@ function init() {
   let errorMessege = document.getElementById('error_messege');
   let loadMore = document.getElementById('load_more');
   movieList = new MovieList(list, loadMore, errorMessege);
-  movieList.movies = DATABASE.getAllMovies().responseJSON;
+  let keyword = localStorage.getItem('search');
+  if (keyword) {
+    search(keyword);
+    localStorage.removeItem('search');
+    document.getElementById('search').value = keyword;
+  }else{
+    movieList.movies = DATABASE.getAllMovies().responseJSON;
+  }
   movieList.showMovie(20);
-
 }
 
 function resetPage() {
