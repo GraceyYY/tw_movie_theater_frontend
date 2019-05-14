@@ -31,7 +31,7 @@ class Database {
 
     getMoviesByKeyword(keyword){
         return $.ajax({
-            url: `${this.url}/movies/search`,
+            url: `${this.url}/movies/keyword`,
             method: 'GET',
             data: {"key": keyword},
             success: (result)=>result
@@ -45,6 +45,4 @@ class Database {
             success: (result)=>result
         })
     }
-
-
 }
