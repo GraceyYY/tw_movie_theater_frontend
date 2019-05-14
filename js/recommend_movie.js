@@ -1,28 +1,27 @@
-const data = new MovieData(JSON.parse(localStorage.getItem('movie')));
-const movieId = parseInt(id[0]);
-let genres = data.searchById(movieId).genres.split(',');
-let movies = data.searchByGenre(genres);
-showMovies(10, movies);
+const DATABASE = new Database();
+let movie = DATABASE.getMovieById(id[0]).responseJSON;
+let genres = movie[0].genres.split(",")[0];
+let recommendedMovies = DATABASE.getMoviesByGenres(genres).responseJSON;
 
+showMovies(10, recommendedMovies);
 function showMovies(num, movies) {
   const list = document.getElementsByClassName('movie_list')[0];
   if (movies.length < num) {
     movies.forEach(movie => {
-      generateMovieList(list, movie.id);
+      generateMovieList(list, movie);
     });
   } else {
     for (let i = 0; i < num; i++) {
-      generateMovieList(list, movies[i].id);
+      generateMovieList(list, movies[i]);
     }
   }
 }
 
-function generateMovieList(dom, id) {
-  dom.innerHTML += generateMovieIntro(id);
+function generateMovieList(dom, movie) {
+  dom.innerHTML += generateMovieIntro(movie);
 }
 
-function generateMovieIntro(id) {
-  let movie = data.searchById(id);
+function generateMovieIntro(movie) {
   return `
     <div class="movie_recommend">
           <div class="brief">
