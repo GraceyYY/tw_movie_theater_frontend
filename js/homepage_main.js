@@ -39,9 +39,7 @@ function searchMovie() {
 
 function search(value) {
   resetPage();
-  let genres = DATABASE.getMoviesByGenres(value).responseJSON;
-  let keywords = DATABASE.getMoviesByKeyword(value).responseJSON;
-  movieList.movies = (keywords.length == 0 ? genres : keywords);
+  movieList.movies = DATABASE.getMoviesByKeyword(value).responseJSON;
 }
 
 function loadMore() {
