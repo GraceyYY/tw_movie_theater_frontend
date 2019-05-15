@@ -1,4 +1,4 @@
-const DATABASE = new Database();
+const DATABASE = new Database("http://localhost:8080");
 let movie = DATABASE.getMovieById(id[0]).responseJSON;
 let genres = movie[0].genres.split(",")[0];
 let recommendedMovies = DATABASE.getMoviesByGenres(genres).responseJSON;

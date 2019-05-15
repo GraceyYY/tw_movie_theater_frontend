@@ -1,4 +1,4 @@
-const DATABASE = new Database();
+const DATABASE = new Database("http://localhost:8080");
 let classification = document.getElementById('classification');
 let movieList;
 init();

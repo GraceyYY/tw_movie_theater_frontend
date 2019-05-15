@@ -1,6 +1,6 @@
 class Database {
-    constructor(){
-        this.url = "http://localhost:8080"
+    constructor(url){
+        this.url = url
     }
 
     getAllMovies(){
@@ -8,6 +8,10 @@ class Database {
             url: `${this.url}/movies`,
             method: "GET",
             async: false,
+            data: {
+                "title": "",
+                "genres": ""
+            },
             success: (result)=>result
             })
         }
@@ -24,9 +28,12 @@ class Database {
 
     getMoviesByGenres(genres){
         return $.ajax({
-            url: `${this.url}/movies/genres`,
+            url: `${this.url}/movies`,
             method: 'GET',
-            data: {"genres": genres},
+            data: {
+                "title": "",
+                "genres": genres
+            },
             async: false,
             success: (result)=>result
         })
@@ -34,9 +41,12 @@ class Database {
 
     getMoviesByKeyword(keyword){
         return $.ajax({
-            url: `${this.url}/movies/keyword`,
+            url: `${this.url}/movies`,
             method: 'GET',
-            data: {"key": keyword},
+            data: {
+                "title": keyword,
+                "genres": keyword
+            },
             async: false,
             success: (result)=>result
         })
@@ -44,7 +54,7 @@ class Database {
 
     getGenres(){
         return $.ajax({
-            url: `${this.url}/genres`,
+            url: `${this.url}/movies/genres`,
             method: 'GET',
             async: false,
             success: (result)=>result
